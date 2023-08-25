@@ -1,0 +1,39 @@
+﻿@model EntityLayer.Concrete.About
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/NewTAdminLayout.cshtml";
+}
+
+<h1>Hakkmda Düzenleme Sayfaası</h1>
+<br />
+@using (Html.BeginForm("Index", "About", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.AboutID)
+    <br />
+    @Html.Label("Başlık")
+    @Html.TextBoxFor(x=>x.Tittle , new{@class ="form-control"})
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x=>x.Description ,10,3, new{@class ="form-control"})
+    <br />
+    @Html.Label("Yaş")
+    @Html.TextBoxFor(x=>x.Age , new{@class ="form-control"})
+    <br />
+    @Html.Label("Mail")
+    @Html.TextBoxFor(x=>x.Mail , new{@class ="form-control"})
+    <br />
+    @Html.Label("Telefon")
+    @Html.TextBoxFor(x=>x.Phone , new{@class ="form-control"})
+    <br />
+    @Html.Label("Adres")
+    @Html.TextBoxFor(x=>x.Address , new{@class ="form-control"})
+    <br />
+    @Html.Label("Görsel Url")
+    @Html.TextBoxFor(x=>x.ImageUrl , new{@class ="form-control"})
+    <br />
+    <button class="btn btn-outline-warning">Güncelle</button>
+}
+<br />
+<a href="https://www.youtube.com/watch?v=ThsfNjsfWKg" class="btn btn-outline-info">Müzik Zamanı</a>

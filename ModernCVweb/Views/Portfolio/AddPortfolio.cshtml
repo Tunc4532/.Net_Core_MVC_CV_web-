@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.Portfolio
+@{
+    ViewData["Title"] = "AddPortfolio";
+    Layout = "~/Views/Shared/NewTAdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddPortfolio", "Portfolio", FormMethod.Post))
+{
+    <br />
+    @Html.Label("Proje Adı")
+    @Html.TextBoxFor(x=>x.Name , new{@class ="form-control"})
+    <br />
+    @Html.Label("Resim Yolu 1")
+    @Html.TextBoxFor(x=>x.ImageUrl , new{@class ="form-control"})
+    <br />
+    @Html.Label("Resim Yolu 2")
+    @Html.TextBoxFor(x=>x.ImageUrltwo , new{@class ="form-control"})
+    <br />
+    @Html.Label("Proje Url")
+    @Html.TextBoxFor(x=>x.ProjectUrl , new{@class ="form-control"})
+    <br />
+    <button class="btn btn-outline-warning">Kaydet</button>
+}

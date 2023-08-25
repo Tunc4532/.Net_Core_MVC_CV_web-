@@ -1,0 +1,45 @@
+﻿@using EntityLayer.Concrete
+@model List<Message>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/NewTAdminLayout.cshtml";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+             <h4 class="card-title">Gelen Mesajar</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Göderen</th>
+                            <th>Mail</th>
+                            <th>Tarih</th>
+                            <th>Sil</th>
+                            <th>Detaylar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MessageID</td>
+                                <td>@item.Name</td>
+                                <td>@item.Mail</td>
+                                <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
+                                <td><a href="/TMessage/DeleteTMessage/@item.MessageID" class="btn btn-outline-danger">Sil</a></td>
+                                <td><a href="/TMessage/ShowTMessage/@item.MessageID" class="btn btn-outline-success">Görüntüle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+

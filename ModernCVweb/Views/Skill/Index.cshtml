@@ -1,0 +1,30 @@
+﻿@using EntityLayer.Concrete
+@model List<Skill>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/NewTAdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Oran</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+    <tr>
+        <td>@item.SkillID</td>
+        <td>@item.Tittle</td>
+        <td>@item.Value</td>
+            <td><a href="/Skill/DeleteSkııl/@item.SkillID" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Skill/EditSkııl/@item.SkillID" class="btn btn-outline-success">Güncelle</a></td>
+    </tr>
+    }
+</table>
+<br />
+<a href="/Skill/AddSkııl/" class="btn btn-outline-warning">Yeni  Yetenek Ekle</a>
+@*<script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/vendors/js/vendor.bundle.base.js"></script>*@

@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete
+@model List<Portfolio>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/NewTAdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Görsel 1</th>
+        <th>Görsel 2</th>
+        <th>Proje Url</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PortfolioID</td>
+            <td>@item.Name</td>
+            <td>@item.ImageUrl</td>
+            <td>@item.ImageUrltwo</td>
+            <td>@item.ProjectUrl</td>
+            <td><a href="/Portfolio/DeletePortfolio/@item.PortfolioID" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Portfolio/EditPortfolio/@item.PortfolioID" class="btn btn-outline-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Portfolio/AddPortfolio/" class="btn btn-outline-warning">Yeni Proje Girişi</a>
+
