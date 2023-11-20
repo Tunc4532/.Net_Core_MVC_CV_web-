@@ -15,7 +15,7 @@ namespace ModernCVweb.Areas.Writer.ViewComponents
 
         public async Task <IViewComponentResult> InvokeAsync()
         {
-            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            var values = await _userManager.FindByNameAsync(User.Identity?.Name);
             ViewBag.v = values.ImageUrl;
 
             return View();

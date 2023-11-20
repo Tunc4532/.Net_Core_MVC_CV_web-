@@ -15,25 +15,25 @@ namespace ModernCVweb.Areas.Writer.Controllers
         {
             _userManager = userManager;
         }
-       
+
         //dashboard kısmında sorun var buray kapatınsa sisteme yeniden tantike oldiğer menüler çalışıyor
 
-        //public async Task< IActionResult> Index()
-        //{
-        //    //var values = await _userManager.FindByNameAsync(User.Identity.Name);
-       
-        //    //ViewBag.v = values.Name + " " + values.Surname;
+        public async Task<IActionResult> Index()
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity?.Name);
 
-        //    //statistics  --- solid biraz burada ezilicek
+            ViewBag.v = values.Name + " " + values.Surname;
 
-        //    //Context c = new Context();
-        //    //ViewBag.v1 = c.mesWriterMessages.Where(x => x.Receiver == values.Email).Count();
-        //    //ViewBag.v2 = c.annonccements.Count();
-        //    //ViewBag.v3 = c.Users.Count();
-        //    //ViewBag.v4 = c.Skills.Count();
+            //statistics  --- solid biraz burada ezilicek
 
-        //    return View();
-        //}
+            Context c = new Context();
+            ViewBag.v1 = c.mesWriterMessages.Where(x => x.Receiver == values.Email).Count();
+            ViewBag.v2 = c.annonccements.Count();
+            ViewBag.v3 = c.Users.Count();
+            ViewBag.v4 = c.Skills.Count();
+
+            return View();
+        }
     }
-}
+    }
 //4KyJbwHfwDs94*T
